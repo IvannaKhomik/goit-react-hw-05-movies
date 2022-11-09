@@ -7,6 +7,7 @@ export const List = styled.ul`
 `;
 
 export const Error = styled.h2`
+  padding-left: 24px;
   color: ${({ theme }) => theme.errorColor};
 `;
 

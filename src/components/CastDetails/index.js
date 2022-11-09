@@ -1,1 +1,1 @@
-export { CastDetails } from './CastDetails';
+export { default } from './CastDetails';

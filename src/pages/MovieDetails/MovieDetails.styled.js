@@ -29,6 +29,7 @@ export const BackLink = styled(Link)`
 
 export const MovieCard = styled.div`
   display: flex;
+  align-items: flex-start;
   padding-left: 24px;
   padding-bottom: 24px;
   box-shadow: 4px 4px 4px #454545;

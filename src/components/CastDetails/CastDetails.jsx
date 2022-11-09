@@ -3,7 +3,7 @@ import { useKeyForSearch } from 'hooks/useKeyForSearch';
 import { useParams } from 'react-router-dom';
 import { CastList, ErrorMessage } from './CastDetails.styled';
 
-export const CastDetails = () => {
+const CastDetails = () => {
   const { movieId } = useParams();
 
   const { movieDetails, error, status } = useKeyForSearch(movieId, '/credits');
@@ -32,3 +32,5 @@ export const CastDetails = () => {
     );
   }
 };
+
+export default CastDetails;

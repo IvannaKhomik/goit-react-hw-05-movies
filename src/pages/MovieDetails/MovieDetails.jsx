@@ -1,4 +1,5 @@
 import { Outlet, useLocation, useParams } from 'react-router-dom';
+import { Suspense } from 'react';
 import {
   AddInfo,
   BackLink,
@@ -14,8 +15,9 @@ import {
 import { HiOutlineArrowNarrowLeft } from 'react-icons/hi';
 import { useKeyForSearch } from 'hooks/useKeyForSearch';
 import defaultImg from '../../img/NoFound.jpg';
+import { Loader } from 'components/Loader';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const location = useLocation();
 
@@ -64,8 +66,13 @@ export const MovieDetails = () => {
           <InfoLink to="cast">Cast</InfoLink>
           <InfoLink to="reviews">Reviews</InfoLink>
         </AddInfo>
-        <Outlet />
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+        {/* <Outlet /> */}
       </main>
     );
   }
 };
+
+export default MovieDetails;

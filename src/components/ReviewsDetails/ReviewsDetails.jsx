@@ -27,3 +27,5 @@ export const ReviewsDetails = () => {
     );
   }
 };
+
+export default ReviewsDetails;

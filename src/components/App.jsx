@@ -1,13 +1,9 @@
 import { SharedLayout } from 'components/SharedLayout';
-import { Home } from 'pages/Home';
-import { Movies } from 'pages/Movies';
 import { Route, Routes } from 'react-router-dom';
 import { Container } from './App.styled';
-import { MovieDetails } from '../pages/MovieDetails';
 import { ThemeProvider } from 'styled-components';
-import { CastDetails } from './CastDetails';
-import { ReviewsDetails } from './ReviewsDetails';
 import { NotFound } from './NotFound';
+import { lazy } from 'react';
 
 const theme = {
   grey: '#546e7a',
@@ -15,6 +11,12 @@ const theme = {
   darkGrey: '#263238',
   errorColor: '#F44336',
 };
+
+const Home = lazy(() => import('../pages/Home'));
+const Movies = lazy(() => import('../pages/Movies'));
+const MovieDetails = lazy(() => import('../pages/MovieDetails'));
+const CastDetails = lazy(() => import('./CastDetails'));
+const ReviewsDetails = lazy(() => import('./ReviewsDetails'));
 
 export const App = () => {
   return (

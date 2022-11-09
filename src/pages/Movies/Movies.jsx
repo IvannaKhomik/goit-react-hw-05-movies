@@ -1,11 +1,13 @@
 import { FilteredMoviesList } from 'components/FilteredMoviesList';
+import { Suspense } from 'react';
 import { SearchBar } from 'components/SearchBar';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { Loader } from 'components/Loader';
 
-export const Movies = () => {
+const Movies = () => {
   const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
   const movieName = searchParams.get('query');
@@ -20,8 +22,12 @@ export const Movies = () => {
   return (
     <main>
       <SearchBar setSearchParams={setSearchParams} />
-      {movieName && <FilteredMoviesList query={query} />}
+      <Suspense fallback={<Loader />}>
+        {movieName && <FilteredMoviesList query={query} />}
+      </Suspense>
       <Toaster />
     </main>
   );
 };
+
+export default Movies;
