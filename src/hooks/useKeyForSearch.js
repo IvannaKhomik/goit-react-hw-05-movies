@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { getMovieDetails } from 'requests/getApi';
 
-export const useKeyForSearch = (movieId, defaultValue, keySearch) => {
-  const [movieDetails, setMovieDetails] = useState(defaultValue);
-  const [error, setError] = useState(defaultValue);
-  const [status, setStatus] = useState(defaultValue);
+export const useKeyForSearch = (movieId, keySearch) => {
+  const [movieDetails, setMovieDetails] = useState([]);
+  const [error, setError] = useState(null);
+  const [status, setStatus] = useState('');
 
   const getMovie = (id, key) => {
     getMovieDetails(id, key)

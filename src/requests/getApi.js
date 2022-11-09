@@ -2,7 +2,6 @@ const data = {
   API_KEY: '068c5b7ddc8b61cb20780a285eccefd7',
   URL: 'https://api.themoviedb.org/3',
   trendingUrl: 'trending',
-  byQueryUrl: 'search',
 };
 
 export function getTrendingMovies() {
@@ -31,28 +30,15 @@ export function getMovieDetails(movieId, searchDetails = '') {
   });
 }
 
-// export function getMovieCredits() {
-//   return fetch(
-//     `${data.URL}/${data.trendingUrl}/all/day?api_key=${data.API_KEY}`
-//   ).then(response => {
-//     if (response.ok) {
-//       return response.json();
-//     }
-//     return Promise.reject(
-//       new Error(`The page you were trying to reach couldn't be found`)
-//     );
-//   });
-// }
-
-// export function getMoviesByQuery(query) {
-//   return fetch(
-//     `${data.URL}/${data.byQueryUrl}/all/day?api_key=${data.API_KEY}`
-//   ).then(response => {
-//     if (response.ok) {
-//       return response.json();
-//     }
-//     return Promise.reject(
-//       new Error(`The page you were trying to reach couldn't be found`)
-//     );
-//   });
-// }
+export function getMoviesByQuery(query) {
+  return fetch(
+    `${data.URL}/search/movie?api_key=${data.API_KEY}&query=${query}&language=en-US&page=1&include_adult=false`
+  ).then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(
+      new Error(`The page you were trying to reach couldn't be found`)
+    );
+  });
+}

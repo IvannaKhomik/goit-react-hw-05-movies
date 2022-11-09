@@ -1,19 +1,15 @@
 import { CastCard } from './CastCard';
 import { useKeyForSearch } from 'hooks/useKeyForSearch';
 import { useParams } from 'react-router-dom';
-import { CastList } from './CastDetails.styled';
+import { CastList, ErrorMessage } from './CastDetails.styled';
 
 export const CastDetails = () => {
   const { movieId } = useParams();
 
-  const { movieDetails, error, status } = useKeyForSearch(
-    movieId,
-    {},
-    '/credits'
-  );
+  const { movieDetails, error, status } = useKeyForSearch(movieId, '/credits');
 
   if (status === 'rejected') {
-    return <p>{error.message}</p>;
+    return <ErrorMessage>{error.message}</ErrorMessage>;
   }
   if (status === 'resolved') {
     const { cast } = movieDetails;

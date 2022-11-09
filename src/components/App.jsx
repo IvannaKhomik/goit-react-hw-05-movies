@@ -7,6 +7,7 @@ import { MovieDetails } from '../pages/MovieDetails';
 import { ThemeProvider } from 'styled-components';
 import { CastDetails } from './CastDetails';
 import { ReviewsDetails } from './ReviewsDetails';
+import { NotFound } from './NotFound';
 
 const theme = {
   grey: '#546e7a',
@@ -27,8 +28,8 @@ export const App = () => {
               <Route path="cast" element={<CastDetails />}></Route>
               <Route path="reviews" element={<ReviewsDetails />}></Route>
             </Route>
-            {/* <Route path="*" element={<NotFound />} /> */}
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
     </ThemeProvider>

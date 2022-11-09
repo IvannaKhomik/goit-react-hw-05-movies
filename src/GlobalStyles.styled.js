@@ -35,6 +35,4 @@ outline: none;
 background: none;
 cursor: pointer;
 }
-}
-
 `;

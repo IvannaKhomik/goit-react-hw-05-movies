@@ -6,11 +6,7 @@ import { ReviewList, ReviewNotFound } from './ReviewsDetails.styled';
 export const ReviewsDetails = () => {
   const { movieId } = useParams();
 
-  const { movieDetails, error, status } = useKeyForSearch(
-    movieId,
-    {},
-    '/reviews'
-  );
+  const { movieDetails, error, status } = useKeyForSearch(movieId, '/reviews');
 
   if (status === 'rejected') {
     return <p>{error.message}</p>;

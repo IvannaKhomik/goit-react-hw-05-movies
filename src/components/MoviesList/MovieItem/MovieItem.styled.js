@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MovieName = styled.li`
@@ -6,10 +6,7 @@ export const MovieName = styled.li`
   margin-bottom: 12px;
 `;
 
-export const StyledLink = styled(NavLink)`
+export const StyledLink = styled(Link)`
   color: inherit;
-
-  &.active {
-    color: #4a235a;
   }
 `;

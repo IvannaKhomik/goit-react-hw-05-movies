@@ -8,3 +8,7 @@ export const CastList = styled.ul`
   list-style: none;
   font-size: 14px;
 `;
+
+export const ErrorMessage = styled.h2`
+  color: ${({ theme }) => theme.errorColor};
+`;

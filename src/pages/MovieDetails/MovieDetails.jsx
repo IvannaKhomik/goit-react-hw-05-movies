@@ -1,4 +1,4 @@
-import { Outlet, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import {
   AddInfo,
   BackLink,
@@ -17,8 +17,9 @@ import defaultImg from '../../img/NoFound.jpg';
 
 export const MovieDetails = () => {
   const { movieId } = useParams();
+  const location = useLocation();
 
-  const { movieDetails, error, status } = useKeyForSearch(movieId, {});
+  const { movieDetails, error, status } = useKeyForSearch(movieId);
 
   if (status === 'rejected') {
     return <Error>{error.message}</Error>;
@@ -36,9 +37,11 @@ export const MovieDetails = () => {
     const genreName = genres.map(genre => genre.name).join(', ');
     const fullPath = 'https://image.tmdb.org/t/p/w500/' + poster_path;
     const userScore = Math.round(vote_average * 10);
+    const backLinkHref = location.state?.from ?? '/';
+
     return (
       <main>
-        <BackLink to="/">
+        <BackLink to={backLinkHref}>
           <HiOutlineArrowNarrowLeft />
           <BackSpan>Go Back</BackSpan>
         </BackLink>
