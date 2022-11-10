@@ -63,11 +63,15 @@ const MovieDetails = () => {
         </MovieCard>
         <AddInfo>
           <MovieSubtitle>Additional information</MovieSubtitle>
-          <InfoLink to="cast">Cast</InfoLink>
-          <InfoLink to="reviews">Reviews</InfoLink>
+          <InfoLink to="cast" state={{ from: location }}>
+            Cast
+          </InfoLink>
+          <InfoLink to="reviews" state={{ from: location }}>
+            Reviews
+          </InfoLink>
         </AddInfo>
         <Suspense fallback={<Loader />}>
-          <Outlet />
+          <Outlet to={backLinkHref} />
         </Suspense>
         {/* <Outlet /> */}
       </main>
